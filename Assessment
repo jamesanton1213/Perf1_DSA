@@ -1,0 +1,20 @@
+1.In JavaScript,  var ,  let , and  const  are keywords used to declare variables, but they differ significantly in their scope and how they handle reassignment.var  has function scope or global scope if declared outside any function.  This means a variable declared with  var  is accessible throughout the entire function it's defined in, or globally if declared outside a function.
+let  and  const , on the other hand, have block scope, meaning they are only accessible within the block of code (defined by curly braces  {} ) where they are declared.   const  variables must be initialized at the time of declaration and cannot be reassigned after that.   let  variables can be reassigned, but their value can be changed after the initial assignment.  Best practice generally favors  const  for values that shouldn't change and  let  for variables whose values might need updating, avoiding  var  due to its potential for unexpected behavior related to hoisting and its broader scope.
+
+References:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
+
+2.In JavaScript, a falsy value is a value that is considered false when encountered in a Boolean context.  This doesn't mean the value is  false , but rather that it will behave as if it were  false  in conditional statements like  if  statements or  while  loops.
+
+false : This is the most straightforward falsy value.  Its Boolean representation is inherently false.  In a conditional statement,  if (false) { ... } , the code within the curly braces will never execute.
+ 
+ 0  (zero): The number zero is considered falsy.  This is a historical artifact of JavaScript's design, and it's important to remember it.   if (0) { ... }  will not execute the code within the curly braces.  This is different from other numerical values, where non-zero numbers are truthy.
+ 
+ ""  (empty string): An empty string is also falsy.  This is because it represents the absence of any characters.   if ("") { ... }  will not execute the code within the curly braces.  Strings with any characters are considered truthy.
+
+Reference:
+https://developer.mozilla.org/en-US/docs/Glossary/Falsy
