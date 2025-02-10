@@ -8,7 +8,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 
 2.In JavaScript, a falsy value is one that evaluates to  false  in a Boolean context.  This doesn't mean the value is  false , but that it behaves like  false  in conditional statements (e.g.,  if ,  while ).  Understanding falsy values is crucial for writing reliable JavaScript code, as they can lead to unexpected behavior if mishandled.There are six falsy values in JavaScript:  false ,  0  (zero),  -0  (negative zero),  0n  (BigInt zero),  ""  (empty string),  null ,  undefined , and  NaN .  These values, when used in a conditional expression, will cause the conditional block to not execute.
- 
+ 
+
 Examples:
 if (0) { console.log("This won't execute"); }
 if (null) { console.log("This won't execute"); }
