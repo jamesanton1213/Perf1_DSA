@@ -1,5 +1,4 @@
-1.In JavaScript,  var ,  let , and  const  are keywords used to declare variables, but they differ significantly in their scope and how they handle reassignment.var  has function scope or global scope if declared outside any function.  This means a variable declared with  var  is accessible throughout the entire function it's defined in, or globally if declared outside a function.
-let  and  const , on the other hand, have block scope, meaning they are only accessible within the block of code (defined by curly braces  {} ) where they are declared.   const  variables must be initialized at the time of declaration and cannot be reassigned after that.   let  variables can be reassigned, but their value can be changed after the initial assignment.  Best practice generally favors  const  for values that shouldn't change and  let  for variables whose values might need updating, avoiding  var  due to its potential for unexpected behavior related to hoisting and its broader scope.
+1.JavaScript uses  var ,  let , and  const  to declare variables, but they differ in scope and mutability.   var  has function or global scope, meaning it's accessible throughout its function or globally if declared outside any function.  In contrast,  let  and  const  have block scope, limited to the block of code (within curly braces  {} ) where they're declared.   const  variables must be initialized upon declaration and cannot be reassigned, making them ideal for constants.   let  variables can be reassigned, allowing for value changes after initialization.  Modern JavaScript best practices generally recommend using  let  and  const  over  var  to avoid hoisting issues and to improve code clarity and maintainability due to their more predictable scoping behavior.  Using  const  by default and only resorting to  let  when reassignment is truly necessary is a good guideline.
 
 References:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
@@ -8,13 +7,35 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 
-2.In JavaScript, a falsy value is a value that is considered false when encountered in a Boolean context.  This doesn't mean the value is  false , but rather that it will behave as if it were  false  in conditional statements like  if  statements or  while  loops.
-
-false : This is the most straightforward falsy value.  Its Boolean representation is inherently false.  In a conditional statement,  if (false) { ... } , the code within the curly braces will never execute.
+2.In JavaScript, a falsy value is one that evaluates to  false  in a Boolean context.  This doesn't mean the value is  false , but that it behaves like  false  in conditional statements (e.g.,  if ,  while ).  Understanding falsy values is crucial for writing reliable JavaScript code, as they can lead to unexpected behavior if mishandled.
  
- 0  (zero): The number zero is considered falsy.  This is a historical artifact of JavaScript's design, and it's important to remember it.   if (0) { ... }  will not execute the code within the curly braces.  This is different from other numerical values, where non-zero numbers are truthy.
+There are six falsy values:
  
- ""  (empty string): An empty string is also falsy.  This is because it represents the absence of any characters.   if ("") { ... }  will not execute the code within the curly braces.  Strings with any characters are considered truthy.
+-  false :  The Boolean  false  itself.
+ 
+-  0  (zero):  The number zero (including  -0 ).
+ 
+-  0n  (BigInt zero):  The BigInt zero.
+ 
+-  ""  (empty string): A string with no characters.
+ 
+-  null :  Represents the intentional absence of a value.
+ 
+-  undefined : Represents a variable that has been declared but has not been assigned a value.
+ 
+-  NaN : Represents "Not a Number," the result of an invalid numerical operation.
+ 
+These values, when used in a conditional, will cause the conditional block to not execute. For example:
+ 
+Examples:
+if (0) { console.log("This won't execute"); }
+if (null) { console.log("This won't execute"); }
+if ("") { console.log("This won't execute"); }
+ 
+ 
+Why are these falsy?
+ 
+The reasons for these values being falsy are rooted in JavaScript's design and historical context.   false ,  null , and  undefined  represent the absence or lack of a value.   0  and  ""  represent empty numerical and string quantities, respectively.   NaN  represents an invalid numerical result.
 
 Reference:
 https://developer.mozilla.org/en-US/docs/Glossary/Falsy
